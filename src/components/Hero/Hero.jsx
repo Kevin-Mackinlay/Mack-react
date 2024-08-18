@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import BgImage from '../../assets/bg-slate.png';
 import iphone1 from '../../assets/iphone1.png';
 import Navbar from '../Navbar/Navbar';
@@ -12,12 +13,18 @@ const bgImage = {
 };
 
 const Hero = () => {
+
+
+const [sidebar, setSidebar] = useState(false);
+
+
+
   return (
     <main style={bgImage}>
       <section className=" relative min-h-[750px] w-full">
         <div className="container">
           {/*Navbar section here*/}
-          <Navbar />
+          <Navbar sidebar={sidebar} setSidebar={setSidebar} />
           {/*Hero section here*/}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center min-h-[850px]">
             {/* text content section */}
@@ -62,26 +69,37 @@ const Hero = () => {
           </div>
         </div>
         {/* {sidebar Menu section} */}
-        <div className="absolute top-0 right-0 w-[140px] h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10">
-          <div className="w-full h-full flex justify-center items-center gap-6 text-white">
-            {/* {line} */}
-            <div className="w-[1px] h-[70px] bg-white"></div>
-            {/* {social Icons} */}
-            <div className='inline-block p-2 rounded-full cursor-pointer border border-white '>
-              <FaFacebookF className='text-2xl' />
-            </div>
-            <div>
-              {' '}
-              <FaTwitter />
-            </div>
-            <div>
-              <FaInstagram />
-            </div>
+        {sidebar && (
+          <motion.div
+          initial={{ x: '100%' }}
+          whileInView={{x:0}}
+          
+          
+          
+          
+          
+          className="absolute top-0 right-0 w-[140px] h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10">
+            <div className="w-full h-full flex justify-center items-center">
+              <div className="flex flex-col justify-center items-center gap-6 text-white">
+                {/* {line} */}
+                <div className="w-[1px] h-[70px] bg-white"></div>
+                {/* {social Icons} */}
+                <div className="inline-block p-2 rounded-full cursor-pointer border border-white ">
+                  <FaFacebookF className="text-2xl" />
+                </div>
+                <div className="inline-block p-2 rounded-full cursor-pointer border border-white ">
+                  <FaTwitter className="text-2xl" />
+                </div>
+                <div className="inline-block p-2 rounded-full cursor-pointer border border-white ">
+                  <FaInstagram className="text-2xl" />
+                </div>
 
-            <div className="w-[1px] h-[70px] bg-white"></div>
-            <div></div>
-          </div>
-        </div>
+                <div className="w-[1px] h-[70px] bg-white"></div>
+                <div></div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </section>
     </main>
   );
