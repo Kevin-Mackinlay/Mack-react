@@ -1,5 +1,7 @@
 import BgImage from '../../assets/bg-slate.png';
 import iphone1 from '../../assets/iphone1.png';
+import Navbar from '../Navbar/Navbar';
+import {motion} from 'framer-motion';
 
 const bgImage = {
   backgroundImage: `url(${BgImage})`,
@@ -14,26 +16,42 @@ const Hero = () => {
       <section className="min-h-[750px] w-full">
         <div className="container">
           {/*Navbar section here*/}
+          <Navbar />
           {/*Hero section here*/}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center min-h-[850px]">
             {/* text content section */}
             <div className="text-lightOrange mt-[100px] md:mt-0 p-4 space-y-28">
-              <h1 className="text-7xl font-bold leading-tight ml-14">Apple</h1>
+              <motion.h1 
+              initial={{opacity:0, y: -100 }} 
+              animate={{opacity:1, y:0}}
+              transition={{type:"spring", stiffness:100,
+                damping: 10,
+                delay: 1
+              }} className="text-7xl font-bold leading-tight ml-14">Apple</motion.h1>
 
-              <div className="relative ">
+              <motion.div 
+              
+               initial={{opacity:0, y: 100 }} 
+              animate={{opacity:1, y:0}}
+              transition={{type:"spring", stiffness:100,
+                damping: 10,
+                delay: 1.2}}
+              
+              
+              
+              
+              className="relative ">
                 <div className="relative z-10 space-y-4">
                   <h2 className="text-2xl ">More powerful</h2>
                   <h2 className="text-sm opacity-55 leading-loose">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non mollitia rem, a explicabo sint numquam laboriosam consequatur sapiente dolore. </h2>
                 </div>
 
                 <div className="absolute -top-6 -left-10 w-[250px] h-[190px] bg-gray-700/25"></div>
-              </div>
+              </motion.div>
             </div>
             {/* Hero Image section */}
             <div className="relative">
-              <img src={iphone1} alt="iphone" className="relative z-40 h-[400px] md:h-[700px]  img-shadow" />
-              {/* Badge/Label */}
-              <div className="absolute top-3 right-0 bg-primary text-white text-lg font-medium py-3 px-6 rounded-full z-50 shadow-lg">More info</div>
+              <img src={iphone1} alt="iphone" className="relative z-40 h-[400px] md:h-[500px] top-20 img-shadow" />
 
               {/* {big text area here} */}
               <div className="absolute -top-10 left-[400px] z-[1] ">
