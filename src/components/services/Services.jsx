@@ -11,14 +11,14 @@ const servicesData = [
   },
   {
     id: 2,
-    image: iphone13,
+    image: iphone14,
 
     title: 'Iphone 14 Pro Max',
     subtitle: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 3,
-    image: iphone12,
+    image: iphone14,
 
     title: 'Iphone 14 Pro Max',
     subtitle: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -59,10 +59,14 @@ const Services = () => {
         </motion.p>
       </div>
       {/* {card section} */}
-      <div>
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 ">
         {servicesData.map((service) => (
-          <div>
-            <img src="{service.image}" alt="" />
+          <div key={service.id} className='text-center p-4 space-y-6 '>
+            <img src={service.image} alt={service.image} className='img-shadow2 max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer' />
+            <div className="space-y-2 ">
+              <h1 className='text-2xl font-bold text-primary'>{service.title}</h1>
+              <p className='text-darkGray '>{service.subtitle}</p>
+            </div>
           </div>
         ))}
       </div>
