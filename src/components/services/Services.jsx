@@ -25,6 +25,31 @@ const servicesData = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 150,
+      damping: 10,
+      ease: 'easeInOut',
+    },
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.6,
+      staggerChildren: 0.4,
+    },
+  },
+};
+
 const Services = () => {
   return (
     <div className="container my-16 space-y-4">
@@ -59,17 +84,31 @@ const Services = () => {
         </motion.p>
       </div>
       {/* {card section} */}
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 ">
+      <motion.div variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.8 }}
+      
+      
+      
+      
+      className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 ">
         {servicesData.map((service) => (
-          <div key={service.id} className='text-center p-4 space-y-6 '>
-            <img src={service.image} alt={service.image} className='img-shadow2 max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer' />
+          <motion.div
+          variants={cardVariants}
+          
+          
+          
+          
+          key={service.id} className="text-center p-4 space-y-6 ">
+            <img src={service.image} alt={service.image} className="img-shadow2 max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer" />
             <div className="space-y-2 ">
-              <h1 className='text-2xl font-bold text-primary'>{service.title}</h1>
-              <p className='text-darkGray '>{service.subtitle}</p>
+              <h1 className="text-2xl font-bold text-primary">{service.title}</h1>
+              <p className="text-darkGray ">{service.subtitle}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
