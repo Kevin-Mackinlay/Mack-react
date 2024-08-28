@@ -27,7 +27,7 @@ const WhereToBuy = () => {
           <motion.img 
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{type: 'spring', stiffness: 100, damping: 10, delay: 1 }}
+          transition={{type: 'spring', stiffness: 100, damping: 10, delay: 1   }}
           
           
           src={worldMap} alt="" className="w-full sm:w-[500px] mx-auto" />
