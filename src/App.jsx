@@ -1,4 +1,5 @@
 import AppBanner from './components/AppBanner/AppBanner.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import Hero from './components/Hero/Hero.jsx';
 import Services from './components/services/Services.jsx';
 import WhereToBuy from './components/WhereToBuy/WhereToBuy.jsx';
@@ -11,6 +12,7 @@ const App = () => {
         <Services />
         <WhereToBuy />
         <AppBanner />
+        <Footer/>
       </div>
     </div>
   );

@@ -29,7 +29,9 @@ const [sidebar, setSidebar] = useState(false);
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center min-h-[850px]">
             {/* text content section */}
             <div className="text-lightOrange mt-[100px] md:mt-0 p-4 space-y-28">
-              <motion.h1 initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 1 }} className="text-7xl font-bold leading-tight ml-14">
+              <motion.h1 initial={{ opacity: 0, y: -100 }}
+               animate={{ opacity: 1, y: 0 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 1 }} className="text-7xl font-bold leading-tight ml-14">
                 Apple
               </motion.h1>
 
